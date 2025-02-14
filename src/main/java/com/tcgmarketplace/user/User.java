@@ -27,7 +27,7 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
-    private Role role = Role.USER; // USER, SELLER, ADMIN
+    private Role role = Role.USER;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
