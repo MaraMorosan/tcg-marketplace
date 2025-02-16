@@ -1,6 +1,7 @@
-package com.tcgmarketplace.tcg;
+package com.tcgmarketplace.tcg.rarity;
 
 import com.tcgmarketplace.rarity.Rarity;
+import com.tcgmarketplace.tcg.Tcg;
 import jakarta.persistence.*;
 
 @Entity

@@ -36,6 +36,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserDto findUserByUsername(String username) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        return toDto(user);
+    }
+
+
+    @Override
     public UserDto createUser(CreateUserDto dto) {
         if (userRepository.existsByEmail(dto.email())) {
             throw new RuntimeException("Email already in use");

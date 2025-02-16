@@ -1,11 +1,10 @@
 package com.tcgmarketplace.product;
 
+import com.tcgmarketplace.card.Card;
 import com.tcgmarketplace.expansion.Expansion;
-import com.tcgmarketplace.tcg.Tcg;
-import com.tcgmarketplace.user.User;
 import jakarta.persistence.*;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -16,36 +15,26 @@ public class Product {
     @Column(name = "product_id")
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "seller_id", nullable = false)
-    private User seller;
+    @Column(name = "product_name", nullable = false, length = 255)
+    private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
-    private ProductCategory category;
-
-    @ManyToOne
-    @JoinColumn(name = "tcg_id", nullable = false)
-    private Tcg tcg;
+    @Enumerated(EnumType.STRING)
+    private ProductType productType;
 
     @ManyToOne
     @JoinColumn(name = "expansion_id")
     private Expansion expansion;
 
-    @Column(nullable = false, length = 255)
-    private String name;
+    @ManyToOne
+    @JoinColumn(name = "card_id")
+    private Card card;
 
-    @Column(columnDefinition = "TEXT")
-    private String description;
+    @ManyToOne
+    @JoinColumn(name = "parent_product_id")
+    private Product parentProduct;
 
-    @Column(nullable = false, precision = 10, scale = 2)
-    private BigDecimal price;
-
-    @Column(nullable = false)
-    private Integer stock;
-
-    @Column(name = "image_url", length = 255)
-    private String imageUrl;
+    @OneToMany(mappedBy = "parentProduct", cascade = CascadeType.ALL)
+    private List<Product> subProducts;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
@@ -72,30 +61,6 @@ public class Product {
         this.id = id;
     }
 
-    public User getSeller() {
-        return seller;
-    }
-
-    public void setSeller(User seller) {
-        this.seller = seller;
-    }
-
-    public ProductCategory getCategory() {
-        return category;
-    }
-
-    public void setCategory(ProductCategory category) {
-        this.category = category;
-    }
-
-    public Tcg getTcg() {
-        return tcg;
-    }
-
-    public void setTcg(Tcg tcg) {
-        this.tcg = tcg;
-    }
-
     public Expansion getExpansion() {
         return expansion;
     }
@@ -112,36 +77,36 @@ public class Product {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public ProductType getProductType() {
+        return productType;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
     }
 
-    public BigDecimal getPrice() {
-        return price;
+    public Card getCard() {
+        return card;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    public void setCard(Card card) {
+        this.card = card;
     }
 
-    public Integer getStock() {
-        return stock;
+    public Product getParentProduct() {
+        return parentProduct;
     }
 
-    public void setStock(Integer stock) {
-        this.stock = stock;
+    public void setParentProduct(Product parentProduct) {
+        this.parentProduct = parentProduct;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public List<Product> getSubProducts() {
+        return subProducts;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setSubProducts(List<Product> subProducts) {
+        this.subProducts = subProducts;
     }
 
     public LocalDateTime getCreatedAt() {

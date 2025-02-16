@@ -1,6 +1,7 @@
 package com.tcgmarketplace.tcg;
 
 import com.tcgmarketplace.expansion.Expansion;
+import com.tcgmarketplace.tcg.rarity.TcgRarity;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -24,9 +25,6 @@ public class Tcg {
 
     @OneToMany(mappedBy = "tcg", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TcgRarity> rarities;
-
-    @OneToMany(mappedBy = "tcg", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<TcgCategory> categories;
 
     public Integer getId() {
         return id;
@@ -52,27 +50,4 @@ public class Tcg {
         this.description = description;
     }
 
-    public List<Expansion> getExpansions() {
-        return expansions;
-    }
-
-    public void setExpansions(List<Expansion> expansions) {
-        this.expansions = expansions;
-    }
-
-    public List<TcgRarity> getRarities() {
-        return rarities;
-    }
-
-    public void setRarities(List<TcgRarity> rarities) {
-        this.rarities = rarities;
-    }
-
-    public List<TcgCategory> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(List<TcgCategory> categories) {
-        this.categories = categories;
-    }
 }

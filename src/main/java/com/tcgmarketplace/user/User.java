@@ -1,6 +1,7 @@
 package com.tcgmarketplace.user;
 
 import com.tcgmarketplace.basket.Basket;
+import com.tcgmarketplace.listing.Listing;
 import com.tcgmarketplace.order.Order;
 import com.tcgmarketplace.product.Product;
 import jakarta.persistence.*;
@@ -8,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
 
     @Id
@@ -36,7 +37,7 @@ public class User {
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
-    private List<Product> products;
+    private List<Listing> listings;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Basket> baskets;
@@ -79,9 +80,6 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
     public void setPassword(String password) {
         this.password = password;
@@ -99,39 +97,12 @@ public class User {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
-
-    public List<Basket> getBaskets() {
-        return baskets;
-    }
-
-    public void setBaskets(List<Basket> baskets) {
-        this.baskets = baskets;
-    }
-
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
+    public String getPassword() {
+        return password;
     }
 }

@@ -1,11 +1,12 @@
 package com.tcgmarketplace.basket;
 
 
+import com.tcgmarketplace.listing.Listing;
 import com.tcgmarketplace.product.Product;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "basket_items")
+@Table(name = "basket_item")
 public class BasketItem {
 
     @Id
@@ -18,8 +19,8 @@ public class BasketItem {
     private Basket basket;
 
     @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
+    @JoinColumn(name = "listing_id", nullable = false)
+    private Listing listing;
 
     @Column(nullable = false)
     private Integer quantity;
@@ -38,14 +39,6 @@ public class BasketItem {
 
     public void setBasket(Basket basket) {
         this.basket = basket;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
     }
 
     public Integer getQuantity() {
