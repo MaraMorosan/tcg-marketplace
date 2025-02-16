@@ -1,5 +1,6 @@
 package com.tcgmarketplace.order;
 
+import com.tcgmarketplace.listing.Listing;
 import com.tcgmarketplace.product.Product;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
@@ -18,8 +19,8 @@ public class OrderItem {
     private Order order;
 
     @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
+    @JoinColumn(name = "listing_id", nullable = false)
+    private Listing listing;
 
     @Column(nullable = false)
     private Integer quantity;
@@ -29,6 +30,13 @@ public class OrderItem {
 
     @Column(precision = 10, scale = 2)
     private BigDecimal subtotal;
+
+    @PrePersist
+    public void onPersist() {
+        if (subtotal == null) {
+            subtotal = price.multiply(new BigDecimal(quantity));
+        }
+    }
 
     public Integer getId() {
         return id;
@@ -44,14 +52,6 @@ public class OrderItem {
 
     public void setOrder(Order order) {
         this.order = order;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
     }
 
     public Integer getQuantity() {

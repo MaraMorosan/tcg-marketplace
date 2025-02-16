@@ -1,6 +1,6 @@
 package com.tcgmarketplace.rarity;
 
-import com.tcgmarketplace.tcg.TcgRarity;
+import com.tcgmarketplace.tcg.rarity.TcgRarity;
 import jakarta.persistence.*;
 import java.util.List;
 

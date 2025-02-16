@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/user")
 public class UserController {
 
     private final UserService userService;
@@ -25,6 +25,11 @@ public class UserController {
     @GetMapping("/{id}")
     public UserDto getUserById(@PathVariable Integer id) {
         return userService.getUserById(id);
+    }
+
+    @GetMapping("/search")
+    public UserDto searchUserByUsername(@RequestParam String username) {
+        return userService.findUserByUsername(username);
     }
 
     @PostMapping
