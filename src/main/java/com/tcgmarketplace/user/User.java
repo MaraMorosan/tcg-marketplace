@@ -102,7 +102,4 @@ public class User {
         return updatedAt;
     }
 
-    public String getPassword() {
-        return password;
-    }
 }

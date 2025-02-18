@@ -1,0 +1,460 @@
+
+CREATE SEQUENCE prod_tcg_marketplace.basket_basket_id_seq
+    INCREMENT BY 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    START 1
+    CACHE 1
+    NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE prod_tcg_marketplace.basket_basket_id_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE prod_tcg_marketplace.basket_basket_id_seq TO postgres;
+
+-- DROP SEQUENCE tcg_marketplace.basket_item_basket_item_id_seq;
+
+CREATE SEQUENCE prod_tcg_marketplace.basket_item_basket_item_id_seq
+    INCREMENT BY 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    START 1
+    CACHE 1
+    NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE prod_tcg_marketplace.basket_item_basket_item_id_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE prod_tcg_marketplace.basket_item_basket_item_id_seq TO postgres;
+
+-- DROP SEQUENCE tcg_marketplace.card_card_id_seq;
+
+CREATE SEQUENCE prod_tcg_marketplace.card_card_id_seq
+    INCREMENT BY 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    START 1
+    CACHE 1
+    NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE prod_tcg_marketplace.card_card_id_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE prod_tcg_marketplace.card_card_id_seq TO postgres;
+
+-- DROP SEQUENCE tcg_marketplace.expansion_expansion_id_seq;
+
+CREATE SEQUENCE prod_tcg_marketplace.expansion_expansion_id_seq
+    INCREMENT BY 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    START 1
+    CACHE 1
+    NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE prod_tcg_marketplace.expansion_expansion_id_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE prod_tcg_marketplace.expansion_expansion_id_seq TO postgres;
+
+-- DROP SEQUENCE tcg_marketplace.listing_listing_id_seq;
+
+CREATE SEQUENCE prod_tcg_marketplace.listing_listing_id_seq
+    INCREMENT BY 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    START 1
+    CACHE 1
+    NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE prod_tcg_marketplace.listing_listing_id_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE prod_tcg_marketplace.listing_listing_id_seq TO postgres;
+
+-- DROP SEQUENCE tcg_marketplace.order_items_order_item_id_seq;
+
+CREATE SEQUENCE prod_tcg_marketplace.order_items_order_item_id_seq
+    INCREMENT BY 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    START 1
+    CACHE 1
+    NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE prod_tcg_marketplace.order_items_order_item_id_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE prod_tcg_marketplace.order_items_order_item_id_seq TO postgres;
+
+-- DROP SEQUENCE tcg_marketplace.order_order_id_seq;
+
+CREATE SEQUENCE prod_tcg_marketplace.order_order_id_seq
+    INCREMENT BY 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    START 1
+    CACHE 1
+    NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE prod_tcg_marketplace.order_order_id_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE prod_tcg_marketplace.order_order_id_seq TO postgres;
+
+-- DROP SEQUENCE tcg_marketplace.product_product_id_seq;
+
+CREATE SEQUENCE prod_tcg_marketplace.product_product_id_seq
+    INCREMENT BY 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    START 1
+    CACHE 1
+    NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE prod_tcg_marketplace.product_product_id_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE prod_tcg_marketplace.product_product_id_seq TO postgres;
+
+-- DROP SEQUENCE tcg_marketplace.rarity_rarity_id_seq;
+
+CREATE SEQUENCE prod_tcg_marketplace.rarity_rarity_id_seq
+    INCREMENT BY 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    START 1
+    CACHE 1
+    NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE prod_tcg_marketplace.rarity_rarity_id_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE prod_tcg_marketplace.rarity_rarity_id_seq TO postgres;
+
+-- DROP SEQUENCE tcg_marketplace.tcg_rarity_tcg_rarity_id_seq;
+
+CREATE SEQUENCE prod_tcg_marketplace.tcg_rarity_tcg_rarity_id_seq
+    INCREMENT BY 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    START 1
+    CACHE 1
+    NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE prod_tcg_marketplace.tcg_rarity_tcg_rarity_id_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE prod_tcg_marketplace.tcg_rarity_tcg_rarity_id_seq TO postgres;
+
+-- DROP SEQUENCE tcg_marketplace.tcg_tcg_id_seq;
+
+CREATE SEQUENCE prod_tcg_marketplace.tcg_tcg_id_seq
+    INCREMENT BY 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    START 1
+    CACHE 1
+    NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE prod_tcg_marketplace.tcg_tcg_id_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE prod_tcg_marketplace.tcg_tcg_id_seq TO postgres;
+
+-- DROP SEQUENCE tcg_marketplace.user_user_id_seq;
+
+CREATE SEQUENCE prod_tcg_marketplace.user_user_id_seq
+    INCREMENT BY 1
+    MINVALUE 1
+    MAXVALUE 2147483647
+    START 1
+    CACHE 1
+    NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE prod_tcg_marketplace.user_user_id_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE prod_tcg_marketplace.user_user_id_seq TO postgres;
+-- tcg_marketplace.rarity definition
+
+-- Drop table
+
+-- DROP TABLE tcg_marketplace.rarity;
+
+CREATE TABLE prod_tcg_marketplace.rarity (
+                                        rarity_id int4 GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE) NOT NULL,
+                                        code varchar(20) NULL,
+                                        "name" varchar(50) NOT NULL,
+                                        description text NULL,
+                                        CONSTRAINT rarity_pkey PRIMARY KEY (rarity_id)
+);
+
+-- Permissions
+
+ALTER TABLE prod_tcg_marketplace.rarity OWNER TO postgres;
+GRANT ALL ON TABLE prod_tcg_marketplace.rarity TO postgres;
+
+
+-- tcg_marketplace.tcg definition
+
+-- Drop table
+
+-- DROP TABLE tcg_marketplace.tcg;
+
+CREATE TABLE prod_tcg_marketplace.tcg (
+                                     tcg_id int4 GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE) NOT NULL,
+                                     "name" varchar(50) NOT NULL,
+                                     description varchar(255) NULL,
+                                     CONSTRAINT tcg_name_key UNIQUE (name),
+                                     CONSTRAINT tcg_pkey PRIMARY KEY (tcg_id)
+);
+
+-- Permissions
+
+ALTER TABLE prod_tcg_marketplace.tcg OWNER TO postgres;
+GRANT ALL ON TABLE prod_tcg_marketplace.tcg TO postgres;
+
+
+-- tcg_marketplace."user" definition
+
+-- Drop table
+
+-- DROP TABLE tcg_marketplace."user";
+
+CREATE TABLE prod_tcg_marketplace."user" (
+                                        user_id int4 GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE) NOT NULL,
+                                        created_at timestamp(6) NULL,
+                                        updated_at timestamp(6) NULL,
+                                        "role" varchar(20) NOT NULL,
+                                        username varchar(50) NOT NULL,
+                                        email varchar(100) NOT NULL,
+                                        "password" varchar(255) NOT NULL,
+                                        CONSTRAINT user_email_key UNIQUE (email),
+                                        CONSTRAINT user_pkey PRIMARY KEY (user_id),
+                                        CONSTRAINT user_role_check CHECK (((role)::text = ANY ((ARRAY['USER'::character varying, 'ADMIN'::character varying])::text[]))),
+                                        CONSTRAINT user_username_key UNIQUE (username)
+);
+
+-- Permissions
+
+ALTER TABLE prod_tcg_marketplace."user" OWNER TO postgres;
+GRANT ALL ON TABLE prod_tcg_marketplace."user" TO postgres;
+
+
+-- tcg_marketplace.basket definition
+
+-- Drop table
+
+-- DROP TABLE tcg_marketplace.basket;
+
+CREATE TABLE prod_tcg_marketplace.basket (
+                                        basket_id int4 GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE) NOT NULL,
+                                        user_id int4 NOT NULL,
+                                        created_at timestamp(6) NULL,
+                                        updated_at timestamp(6) NULL,
+                                        CONSTRAINT basket_pkey PRIMARY KEY (basket_id),
+                                        CONSTRAINT fkfp7yinn3dh4sy1ia364xp3d9g FOREIGN KEY (user_id) REFERENCES prod_tcg_marketplace."user"(user_id)
+);
+
+-- Permissions
+
+ALTER TABLE prod_tcg_marketplace.basket OWNER TO postgres;
+GRANT ALL ON TABLE prod_tcg_marketplace.basket TO postgres;
+
+
+-- tcg_marketplace.expansion definition
+
+-- Drop table
+
+-- DROP TABLE tcg_marketplace.expansion;
+
+CREATE TABLE prod_tcg_marketplace.expansion (
+                                           expansion_id int4 GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE) NOT NULL,
+                                           release_date date NULL,
+                                           tcg_id int4 NOT NULL,
+                                           code varchar(50) NULL,
+                                           "name" varchar(100) NOT NULL,
+                                           CONSTRAINT expansion_pkey PRIMARY KEY (expansion_id),
+                                           CONSTRAINT fk1dosoq9iondbit7yg0p5bwg5r FOREIGN KEY (tcg_id) REFERENCES prod_tcg_marketplace.tcg(tcg_id)
+);
+
+-- Permissions
+
+ALTER TABLE prod_tcg_marketplace.expansion OWNER TO postgres;
+GRANT ALL ON TABLE prod_tcg_marketplace.expansion TO postgres;
+
+
+-- tcg_marketplace."order" definition
+
+-- Drop table
+
+-- DROP TABLE tcg_marketplace."order";
+
+CREATE TABLE prod_tcg_marketplace."order" (
+                                         order_id int4 GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE) NOT NULL,
+                                         total numeric(10, 2) NULL,
+                                         user_id int4 NOT NULL,
+                                         order_date timestamp(6) NULL,
+                                         status varchar(20) NULL,
+                                         CONSTRAINT order_pkey PRIMARY KEY (order_id),
+                                         CONSTRAINT fkt7abetueht6dd1gs9jyl3o4t7 FOREIGN KEY (user_id) REFERENCES prod_tcg_marketplace."user"(user_id)
+);
+
+-- Permissions
+
+ALTER TABLE prod_tcg_marketplace."order" OWNER TO postgres;
+GRANT ALL ON TABLE prod_tcg_marketplace."order" TO postgres;
+
+
+-- tcg_marketplace.tcg_rarity definition
+
+-- Drop table
+
+-- DROP TABLE tcg_marketplace.tcg_rarity;
+
+CREATE TABLE prod_tcg_marketplace.tcg_rarity (
+                                            rarity_id int4 NOT NULL,
+                                            tcg_id int4 NOT NULL,
+                                            tcg_rarity_id int4 GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE) NOT NULL,
+                                            CONSTRAINT tcg_rarity_pkey PRIMARY KEY (tcg_rarity_id),
+                                            CONSTRAINT fk9pnxeahein2y1wvfs31ivjgnf FOREIGN KEY (tcg_id) REFERENCES prod_tcg_marketplace.tcg(tcg_id),
+                                            CONSTRAINT fkdjxnvx35dggf57ijblntqro62 FOREIGN KEY (rarity_id) REFERENCES prod_tcg_marketplace.rarity(rarity_id)
+);
+
+-- Permissions
+
+ALTER TABLE prod_tcg_marketplace.tcg_rarity OWNER TO postgres;
+GRANT ALL ON TABLE prod_tcg_marketplace.tcg_rarity TO postgres;
+
+
+-- tcg_marketplace.card definition
+
+-- Drop table
+
+-- DROP TABLE tcg_marketplace.card;
+
+CREATE TABLE prod_tcg_marketplace.card (
+                                      card_id int4 GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE) NOT NULL,
+                                      expansion_id int4 NOT NULL,
+                                      tcg_rarity_id int4 NOT NULL,
+                                      collector_number varchar(50) NULL,
+                                      "name" varchar(100) NOT NULL,
+                                      image_url varchar(255) NULL,
+                                      CONSTRAINT card_pkey PRIMARY KEY (card_id),
+                                      CONSTRAINT fk48vpuxo7531lnxk9uaaxb0i4c FOREIGN KEY (expansion_id) REFERENCES prod_tcg_marketplace.expansion(expansion_id),
+                                      CONSTRAINT fkksrbcj5prbh9ju2anakmb1j21 FOREIGN KEY (tcg_rarity_id) REFERENCES prod_tcg_marketplace.tcg_rarity(tcg_rarity_id)
+);
+
+-- Permissions
+
+ALTER TABLE prod_tcg_marketplace.card OWNER TO postgres;
+GRANT ALL ON TABLE prod_tcg_marketplace.card TO postgres;
+
+
+-- tcg_marketplace.product definition
+
+-- Drop table
+
+-- DROP TABLE tcg_marketplace.product;
+
+CREATE TABLE prod_tcg_marketplace.product (
+                                         card_id int4 NULL,
+                                         expansion_id int4 NULL,
+                                         parent_product_id int4 NULL,
+                                         product_id int4 GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE) NOT NULL,
+                                         created_at timestamp(6) NULL,
+                                         updated_at timestamp(6) NULL,
+                                         product_name varchar(255) NOT NULL,
+                                         product_type varchar(255) NULL,
+                                         CONSTRAINT product_pkey PRIMARY KEY (product_id),
+                                         CONSTRAINT product_product_type_check CHECK (((product_type)::text = ANY ((ARRAY['SINGLE'::character varying, 'BOOSTER'::character varying, 'BOOSTER_BOX'::character varying, 'SEALED'::character varying])::text[]))),
+                                         CONSTRAINT fk1jwubok02abxla907hjq2e2 FOREIGN KEY (parent_product_id) REFERENCES prod_tcg_marketplace.product(product_id),
+                                         CONSTRAINT fkllog81f76a0m4y3rnvhq8j0n2 FOREIGN KEY (card_id) REFERENCES prod_tcg_marketplace.card(card_id),
+                                         CONSTRAINT fksjkmnojh0x2i1o1hf92a0iue7 FOREIGN KEY (expansion_id) REFERENCES prod_tcg_marketplace.expansion(expansion_id)
+);
+
+-- Permissions
+
+ALTER TABLE prod_tcg_marketplace.product OWNER TO postgres;
+GRANT ALL ON TABLE prod_tcg_marketplace.product TO postgres;
+
+
+-- tcg_marketplace.listing definition
+
+-- Drop table
+
+-- DROP TABLE tcg_marketplace.listing;
+
+CREATE TABLE prod_tcg_marketplace.listing (
+                                         listing_id int4 GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE) NOT NULL,
+                                         price numeric(10, 2) NOT NULL,
+                                         product_id int4 NOT NULL,
+                                         seller_id int4 NOT NULL,
+                                         stock int4 NOT NULL,
+                                         created_at timestamp(6) NULL,
+                                         updated_at timestamp(6) NULL,
+                                         "condition" varchar(20) NOT NULL,
+                                         CONSTRAINT listing_condition_check CHECK (((condition)::text = ANY ((ARRAY['MINT'::character varying, 'NEAR_MINT'::character varying, 'LIGHT_PLAYED'::character varying, 'MODERATE_PLAYED'::character varying, 'HEAVY_PLAYED'::character varying, 'DAMAGED'::character varying, 'SEALED'::character varying])::text[]))),
+                                         CONSTRAINT listing_pkey PRIMARY KEY (listing_id),
+                                         CONSTRAINT fkimp09l5hmrca1jwkm53yjxcli FOREIGN KEY (seller_id) REFERENCES prod_tcg_marketplace."user"(user_id),
+                                         CONSTRAINT fkm16knef6gil9b059ivoe5wt5 FOREIGN KEY (product_id) REFERENCES prod_tcg_marketplace.product(product_id)
+);
+
+-- Permissions
+
+ALTER TABLE prod_tcg_marketplace.listing OWNER TO postgres;
+GRANT ALL ON TABLE prod_tcg_marketplace.listing TO postgres;
+
+
+-- tcg_marketplace.order_items definition
+
+-- Drop table
+
+-- DROP TABLE tcg_marketplace.order_items;
+
+CREATE TABLE prod_tcg_marketplace.order_items (
+                                             listing_id int4 NOT NULL,
+                                             order_id int4 NOT NULL,
+                                             order_item_id int4 GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE) NOT NULL,
+                                             price numeric(10, 2) NOT NULL,
+                                             quantity int4 NOT NULL,
+                                             subtotal numeric(10, 2) NULL,
+                                             CONSTRAINT order_items_pkey PRIMARY KEY (order_item_id),
+                                             CONSTRAINT fkdy6l1ieu09exdjope704jwo1e FOREIGN KEY (order_id) REFERENCES prod_tcg_marketplace."order"(order_id),
+                                             CONSTRAINT fkrywqdcuotojhu0ljj11i3l1nt FOREIGN KEY (listing_id) REFERENCES prod_tcg_marketplace.listing(listing_id)
+);
+
+-- Permissions
+
+ALTER TABLE prod_tcg_marketplace.order_items OWNER TO postgres;
+GRANT ALL ON TABLE prod_tcg_marketplace.order_items TO postgres;
+
+
+-- tcg_marketplace.basket_item definition
+
+-- Drop table
+
+-- DROP TABLE tcg_marketplace.basket_item;
+
+CREATE TABLE prod_tcg_marketplace.basket_item (
+                                             basket_id int4 NOT NULL,
+                                             basket_item_id int4 GENERATED BY DEFAULT AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE) NOT NULL,
+                                             listing_id int4 NOT NULL,
+                                             quantity int4 NOT NULL,
+                                             CONSTRAINT basket_item_pkey PRIMARY KEY (basket_item_id),
+                                             CONSTRAINT fkara19f2xv7ml3a24f50v6bsk2 FOREIGN KEY (basket_id) REFERENCES prod_tcg_marketplace.basket(basket_id),
+                                             CONSTRAINT fkbtaff18y8qfel1xidt58nfylf FOREIGN KEY (listing_id) REFERENCES prod_tcg_marketplace.listing(listing_id)
+);
+
+-- Permissions
+
+ALTER TABLE prod_tcg_marketplace.basket_item OWNER TO postgres;
+GRANT ALL ON TABLE prod_tcg_marketplace.basket_item TO postgres;
+
+
+
+
+-- Permissions
+
+GRANT ALL ON SCHEMA prod_tcg_marketplace TO postgres;
