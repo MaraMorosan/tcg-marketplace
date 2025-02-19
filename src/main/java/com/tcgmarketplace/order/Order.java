@@ -1,5 +1,6 @@
 package com.tcgmarketplace.order;
 
+import com.tcgmarketplace.order.item.OrderItem;
 import com.tcgmarketplace.user.User;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
@@ -61,10 +62,6 @@ public class Order {
         return orderDate;
     }
 
-    public void setOrderDate(LocalDateTime orderDate) {
-        this.orderDate = orderDate;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -79,13 +76,5 @@ public class Order {
 
     public void setTotal(BigDecimal total) {
         this.total = total;
-    }
-
-    public List<OrderItem> getOrderItems() {
-        return orderItems;
-    }
-
-    public void setOrderItems(List<OrderItem> orderItems) {
-        this.orderItems = orderItems;
     }
 }
