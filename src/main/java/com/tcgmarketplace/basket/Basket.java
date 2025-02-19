@@ -1,6 +1,7 @@
 package com.tcgmarketplace.basket;
 
 
+import com.tcgmarketplace.basket.item.BasketItem;
 import com.tcgmarketplace.user.User;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -59,23 +60,7 @@ public class Basket {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public List<BasketItem> getBasketItems() {
-        return basketItems;
-    }
-
-    public void setBasketItems(List<BasketItem> basketItems) {
-        this.basketItems = basketItems;
     }
 }

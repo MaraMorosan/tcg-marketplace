@@ -56,13 +56,5 @@ public class Rarity {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public List<TcgRarity> getTcgRarities() {
-        return tcgRarities;
-    }
-
-    public void setTcgRarities(List<TcgRarity> tcgRarities) {
-        this.tcgRarities = tcgRarities;
-    }
 }
 

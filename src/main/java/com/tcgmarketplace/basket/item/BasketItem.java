@@ -1,8 +1,8 @@
-package com.tcgmarketplace.basket;
+package com.tcgmarketplace.basket.item;
 
 
+import com.tcgmarketplace.basket.Basket;
 import com.tcgmarketplace.listing.Listing;
-import com.tcgmarketplace.product.Product;
 import jakarta.persistence.*;
 
 @Entity
@@ -47,5 +47,13 @@ public class BasketItem {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public Listing getListing() {
+        return listing;
+    }
+
+    public void setListing(Listing listing) {
+        this.listing = listing;
     }
 }

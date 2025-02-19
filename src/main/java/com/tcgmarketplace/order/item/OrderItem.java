@@ -1,7 +1,7 @@
-package com.tcgmarketplace.order;
+package com.tcgmarketplace.order.item;
 
 import com.tcgmarketplace.listing.Listing;
-import com.tcgmarketplace.product.Product;
+import com.tcgmarketplace.order.Order;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 
@@ -76,5 +76,13 @@ public class OrderItem {
 
     public void setSubtotal(BigDecimal subtotal) {
         this.subtotal = subtotal;
+    }
+
+    public Listing getListing() {
+        return listing;
+    }
+
+    public void setListing(Listing listing) {
+        this.listing = listing;
     }
 }

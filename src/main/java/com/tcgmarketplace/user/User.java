@@ -3,7 +3,6 @@ package com.tcgmarketplace.user;
 import com.tcgmarketplace.basket.Basket;
 import com.tcgmarketplace.listing.Listing;
 import com.tcgmarketplace.order.Order;
-import com.tcgmarketplace.product.Product;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -80,7 +79,6 @@ public class User {
         this.email = email;
     }
 
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -96,7 +94,6 @@ public class User {
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
-
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
