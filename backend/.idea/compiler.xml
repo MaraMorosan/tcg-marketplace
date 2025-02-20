@@ -10,7 +10,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="tcg-marketplace" />
-        <module name="TCG-Marketplace" />
       </profile>
     </annotationProcessing>
   </component>

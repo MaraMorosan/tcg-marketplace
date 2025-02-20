@@ -21,6 +21,7 @@ D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\card
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\card\dto\CardDto.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\card\dto\CreateCardDto.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\card\dto\UpdateCardDto.java
+D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\config\CorsConfig.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\config\SecurityConfig.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\expansion\dto\CreateExpansionDto.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\expansion\dto\ExpansionDto.java
