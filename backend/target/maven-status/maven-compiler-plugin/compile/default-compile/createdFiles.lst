@@ -8,6 +8,7 @@ com\tcgmarketplace\card\CardController.class
 com\tcgmarketplace\listing\ListingServiceImpl.class
 com\tcgmarketplace\order\item\OrderItemServiceImpl.class
 com\tcgmarketplace\rarity\dto\CreateRarityDto.class
+com\tcgmarketplace\config\CorsConfig$1.class
 com\tcgmarketplace\config\SecurityConfig.class
 com\tcgmarketplace\tcg\TcgServiceImpl.class
 com\tcgmarketplace\card\dto\CreateCardDto.class
@@ -80,6 +81,7 @@ com\tcgmarketplace\card\Card.class
 com\tcgmarketplace\order\dto\UpdateOrderDto.class
 com\tcgmarketplace\user\dto\UserDto.class
 com\tcgmarketplace\basket\item\BasketItemService.class
+com\tcgmarketplace\config\CorsConfig.class
 com\tcgmarketplace\tcg\dto\CreateTcgDto.class
 com\tcgmarketplace\rarity\RarityServiceImpl.class
 com\tcgmarketplace\listing\dto\ListingDto.class
