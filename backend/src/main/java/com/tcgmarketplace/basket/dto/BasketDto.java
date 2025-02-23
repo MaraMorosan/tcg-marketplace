@@ -1,10 +1,11 @@
 package com.tcgmarketplace.basket.dto;
 
-import java.time.LocalDateTime;
+import com.tcgmarketplace.basket.item.dto.BasketItemDto;
+
+import java.util.List;
 
 public record BasketDto(
         Integer id,
         Integer userId,
-        LocalDateTime createdAt,
-        LocalDateTime updatedAt
+        List<BasketItemDto> basketItems
 ) {}

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/rarity")
+@RequestMapping("/api/rarities")
 public class RarityController {
 
     private final RarityService rarityService;

@@ -6,9 +6,9 @@ import com.tcgmarketplace.listing.dto.UpdateListingDto;
 import com.tcgmarketplace.product.Product;
 import com.tcgmarketplace.product.ProductRepository;
 import com.tcgmarketplace.user.User;
-import com.tcgmarketplace.user.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Service
@@ -17,14 +17,11 @@ public class ListingServiceImpl implements ListingService {
 
     private final ListingRepository listingRepository;
     private final ProductRepository productRepository;
-    private final UserRepository userRepository;
 
     public ListingServiceImpl(ListingRepository listingRepository,
-                              ProductRepository productRepository,
-                              UserRepository userRepository) {
+                              ProductRepository productRepository) {
         this.listingRepository = listingRepository;
         this.productRepository = productRepository;
-        this.userRepository = userRepository;
     }
 
     @Override
@@ -42,28 +39,29 @@ public class ListingServiceImpl implements ListingService {
     }
 
     @Override
-    public ListingDto createListing(CreateListingDto dto) {
+    public ListingDto createListing(User seller, CreateListingDto dto) {
         Product product = productRepository.findById(dto.productId())
                 .orElseThrow(() -> new RuntimeException("Product not found"));
-
-        User seller = userRepository.findById(dto.sellerId())
-                .orElseThrow(() -> new RuntimeException("Seller not found"));
 
         Listing listing = new Listing();
         listing.setProduct(product);
         listing.setSeller(seller);
         listing.setStock(dto.stock());
         listing.setPrice(dto.price());
-        listing.setCondition(dto.condition() != null ? dto.condition() : com.tcgmarketplace.listing.Condition.NEAR_MINT);
+        listing.setCondition(dto.condition() != null ? dto.condition() : Condition.NEAR_MINT);
 
         listingRepository.save(listing);
         return toDto(listing);
     }
 
     @Override
-    public ListingDto updateListing(Integer id, UpdateListingDto dto) {
+    public ListingDto updateListing(User user, Integer id, UpdateListingDto dto) {
         Listing listing = listingRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Listing not found"));
+
+        if (!listing.getSeller().getId().equals(user.getId())) {
+            throw new RuntimeException("Unauthorized: You can only edit your own listings");
+        }
 
         listing.setStock(dto.stock());
         listing.setPrice(dto.price());
@@ -74,10 +72,14 @@ public class ListingServiceImpl implements ListingService {
     }
 
     @Override
-    public void deleteListing(Integer id) {
-        if (!listingRepository.existsById(id)) {
-            throw new RuntimeException("Listing not found");
+    public void deleteListing(User user, Integer id) {
+        Listing listing = listingRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Listing not found"));
+
+        if (!listing.getSeller().getId().equals(user.getId())) {
+            throw new RuntimeException("Unauthorized: You can only delete your own listings");
         }
+
         listingRepository.deleteById(id);
     }
 

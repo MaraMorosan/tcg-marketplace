@@ -3,13 +3,12 @@ package com.tcgmarketplace.expansion;
 import com.tcgmarketplace.expansion.dto.CreateExpansionDto;
 import com.tcgmarketplace.expansion.dto.UpdateExpansionDto;
 import com.tcgmarketplace.expansion.dto.ExpansionDto;
-import com.tcgmarketplace.tcg.dto.TcgDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/expansion")
+@RequestMapping("/api/expansions")
 public class ExpansionController {
 
     private final ExpansionService expansionService;
