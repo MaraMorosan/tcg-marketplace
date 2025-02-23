@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./best-sellers.module.scss";
+import { CARDS_ENDPOINT } from "@/config/api";
 
 interface Card {
   id: number;
@@ -18,7 +19,7 @@ export default function BestSellers() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/card`;
+    const url = CARDS_ENDPOINT;
     axios
       .get(url)
       .then((response) => {
@@ -26,14 +27,13 @@ export default function BestSellers() {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Eroare la preluarea datelor:", err);
         setError(err);
         setLoading(false);
       });
   }, []);
 
-  if (loading) return <p>Se încarcă...</p>;
-  if (error) return <p>Eroare la încărcarea datelor.</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error on loading data.</p>;
 
   const sortedCards = [...cards].sort((a, b) => a.name.localeCompare(b.name));
   const topThree = sortedCards.slice(0, 3);
@@ -51,7 +51,6 @@ export default function BestSellers() {
               <div className={styles.badge}>{index + 1}</div>
             </div>
             <h3>{card.name}</h3>
-            {/* <p className={styles.price}>{card.price}</p> */}
             <p className={styles.soldInfo}>12 sold in the last 24h</p>
           </div>
         ))}
@@ -62,7 +61,6 @@ export default function BestSellers() {
           <li key={card.id} className={styles.otherProduct}>
             <span className={styles.position}>{index + 4}.</span>
             <h3>{card.name}</h3>
-            {/* <p className={styles.price}>{card.price}</p> */}
             <p className={styles.soldInfo}>12 sold in the last 24h</p>
           </li>
         ))}

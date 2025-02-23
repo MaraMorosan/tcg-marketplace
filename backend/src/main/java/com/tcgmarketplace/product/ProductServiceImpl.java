@@ -35,11 +35,27 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<Product> searchByName(String name, int limit) {
+        return productRepository.searchByName(name, limit);
+    }
+
+    @Override
+    public int countByNameLike(String name) {
+        return productRepository.countByName(name);
+    }
+
+    @Override
     public ProductDto getProductById(Integer id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found"));
         return toDto(product);
     }
+
+    @Override
+    public List<Product> getProductByExpansionName(String expansionName) {
+        return productRepository.findByExpansionName(expansionName);
+    }
+
 
     @Override
     public ProductDto createProduct(CreateProductDto dto) {

@@ -4,7 +4,6 @@ package com.tcgmarketplace.basket;
 import com.tcgmarketplace.basket.item.BasketItem;
 import com.tcgmarketplace.user.User;
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -20,25 +19,8 @@ public class Basket {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
-
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
-
     @OneToMany(mappedBy = "basket", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BasketItem> basketItems;
-
-    @PrePersist
-    public void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    public void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
 
     public Integer getId() {
         return id;
@@ -56,11 +38,11 @@ public class Basket {
         this.user = user;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public List<BasketItem> getBasketItems() {
+        return basketItems;
     }
 
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
+    public void setBasketItems(List<BasketItem> basketItems) {
+        this.basketItems = basketItems;
     }
 }

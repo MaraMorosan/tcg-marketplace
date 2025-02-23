@@ -3,6 +3,9 @@ package com.tcgmarketplace.user;
 import com.tcgmarketplace.user.dto.CreateUserDto;
 import com.tcgmarketplace.user.dto.UpdateUserDto;
 import com.tcgmarketplace.user.dto.UserDto;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,14 +25,28 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    @GetMapping("/me")
+    public ResponseEntity<User> authenticatedUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        User currentUser = (User) authentication.getPrincipal();
+
+        return ResponseEntity.ok(currentUser);
+    }
+
     @GetMapping("/{id}")
     public UserDto getUserById(@PathVariable Integer id) {
         return userService.getUserById(id);
     }
 
-    @GetMapping("/search")
+    @GetMapping("/search/username")
     public UserDto searchUserByUsername(@RequestParam String username) {
         return userService.findUserByUsername(username);
+    }
+
+    @GetMapping("/search/email")
+    public UserDto searchUserByEmail(@RequestParam String email) {
+        return userService.findUserByEmail(email);
     }
 
     @PostMapping

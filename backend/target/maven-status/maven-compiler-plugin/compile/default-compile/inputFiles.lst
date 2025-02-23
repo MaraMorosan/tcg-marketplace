@@ -21,7 +21,6 @@ D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\card
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\card\dto\CardDto.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\card\dto\CreateCardDto.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\card\dto\UpdateCardDto.java
-D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\config\CorsConfig.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\config\SecurityConfig.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\expansion\dto\CreateExpansionDto.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\expansion\dto\ExpansionDto.java
@@ -73,6 +72,7 @@ D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\rari
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\rarity\RarityRepository.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\rarity\RarityService.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\rarity\RarityServiceImpl.java
+D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\security\JwtService.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\tcg\dto\CreateTcgDto.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\tcg\dto\TcgDto.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\tcg\dto\UpdateTcgDto.java
@@ -98,3 +98,4 @@ D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\user
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\user\UserRepository.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\user\UserService.java
 D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\user\UserServiceImpl.java
+D:\TCG-Marketplace\tcg-marketplace\backend\src\main\java\com\tcgmarketplace\util\KeyGeneratorUtil.java
