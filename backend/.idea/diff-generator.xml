@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DiffGenerationConfig">
+    <option name="sourceModelValue" value="tcg-marketplace:entityManagerFactory" />
+    <option name="targetDbValue" value="b0773bcd-ce2f-4d59-8dda-c52458f4b8dd__tcg_marketplace_prod_tcg_marketplace" />
+  </component>
+</project>
