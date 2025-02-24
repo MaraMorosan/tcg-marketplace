@@ -119,7 +119,6 @@ export default function Carousel() {
           <div className={styles.overlay}>
             <h2>{banners[currentIndex].title}</h2>
             <p>{banners[currentIndex].subtitle}</p>
-            {/* 🔹 Buton care redirecționează spre `[tcg]/community` */}
             <button className={styles.button} onClick={handleRedirect}>
               View More
             </button>

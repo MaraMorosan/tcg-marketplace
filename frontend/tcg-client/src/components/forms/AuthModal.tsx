@@ -12,7 +12,7 @@ interface AuthModalProps {
   onRegisterSuccess: (token: string) => void;
 }
 
-export default function AuthModal({ show, onClose, onLogin, onRegisterSuccess }: AuthModalProps) {
+export default function AuthModal({ show, onClose, onLogin }: AuthModalProps) {
   const [authMode, setAuthMode] = useState<"login" | "register">("login");
 
   if (!show) return null;
