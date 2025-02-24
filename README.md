@@ -25,7 +25,7 @@ This project implements JWT (JSON Web Token) authentication, where user tokens a
 
 ---
 
-## 🛠 Setup & Installation
+## Setup & Installation
 ### **Prerequisites**
 Ensure you have the following installed before proceeding:
 - **Node.js**
@@ -33,6 +33,6 @@ Ensure you have the following installed before proceeding:
 - **Maven** (for dependency management)
 - **PostgreSQL**
 
-### **1️⃣ Clone the Repository**
+### **Clone the Repository**
 ```sh
 git clone https://github.com/MaraMorosan/tcg-marketplace.git
