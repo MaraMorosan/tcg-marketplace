@@ -8,9 +8,11 @@ import styles from "./auth-modal.module.scss";
 interface AuthModalProps {
   show: boolean;
   onClose: () => void;
+  onLogin: (username: string, password: string) => void;
+  onRegisterSuccess: (token: string) => void;
 }
 
-export default function AuthModal({ show, onClose }: AuthModalProps) {
+export default function AuthModal({ show, onClose, onLogin }: AuthModalProps) {
   const [authMode, setAuthMode] = useState<"login" | "register">("login");
 
   if (!show) return null;
@@ -27,7 +29,7 @@ export default function AuthModal({ show, onClose }: AuthModalProps) {
         </button>
         
         {authMode === "login" ? (
-          <LoginForm onToggleMode={toggleAuthMode} />
+          <LoginForm onToggleMode={toggleAuthMode} onLogin={onLogin} />
         ) : (
           <RegisterForm onToggleMode={toggleAuthMode} />
         )}

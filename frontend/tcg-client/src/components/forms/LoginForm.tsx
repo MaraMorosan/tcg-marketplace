@@ -4,20 +4,29 @@ import styles from "./login-form.module.scss";
 
 interface LoginFormProps {
   onToggleMode: () => void;
+  onLogin: (username: string, password: string) => void;
 }
 
-export default function LoginForm({ onToggleMode }: LoginFormProps) {
+export default function LoginForm({ onToggleMode, onLogin }: LoginFormProps) {
   return (
     <div className={styles.formContent}>
       <h2>Login</h2>
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          const formData = new FormData(e.currentTarget);
+          const username = formData.get("username") as string;
+          const password = formData.get("password") as string;
+          onLogin(username, password);
+        }}
+      >
         <label>
-          Email:
-          <input type="email" placeholder="Enter your email" />
+          Username:
+          <input type="text" name="username" placeholder="Enter your username" required />
         </label>
         <label>
           Password:
-          <input type="password" placeholder="Enter your password" />
+          <input type="password" name="password" placeholder="Enter your password" required />
         </label>
         <button type="submit" className={styles.submitBtn}>Login</button>
       </form>

@@ -1,93 +1,115 @@
 .expansions {
-    background: #222;
-    padding: 20px;
-    border-radius: 8px;
-    color: white;
-    text-align: center;
-  
-    h2 {
-      margin-bottom: 15px;
-    }
-  
-    .expansionList {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-  
-    .expansionItem {
-      cursor: pointer;
-      padding: 10px;
-      background: #333;
+  background: #222;
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 15px;
+  }
+
+  .expansionList {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .expansionItem {
+    cursor: pointer;
+    padding: 10px;
+    background: #333;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    
+    img {
+      width: 100px;
+      height: 100px;
       border-radius: 5px;
-      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    p {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    &:hover {
+      background: #444;
+      transform: scale(1.05);
+    }
+  }
+
+  .active {
+    background: rgb(219, 219, 153);
+    color: black;
+  }
+
+  .cardsList {
+    text-align: left;
+    margin-top: 15px;
+    
+    h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .cardItem {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #333;
+      padding: 10px;
+      border-radius: 5px;
+      transition: transform 0.3s ease;
       
       img {
-        width: 100px;
-        height: 100px;
+        width: 50px;
+        height: 50px;
         border-radius: 5px;
       }
-  
-      p {
-        margin-top: 8px;
-        font-size: 14px;
+
+      h4 {
+        font-size: 16px;
       }
-  
+
+      p {
+        color: rgb(219, 219, 153);
+      }
+
       &:hover {
-        background: #444;
         transform: scale(1.05);
       }
     }
-  
-    .active {
-      background: #ffcc00;
-      color: black;
-    }
-  
-    .cardsList {
-      text-align: left;
-      margin-top: 15px;
-      
-      h3 {
-        font-size: 18px;
-        margin-bottom: 10px;
-      }
-  
-      ul {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-  
-      .cardItem {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        background: #333;
-        padding: 10px;
-        border-radius: 5px;
-        transition: transform 0.3s ease;
-        
-        img {
-          width: 50px;
-          height: 50px;
-          border-radius: 5px;
-        }
-  
-        h4 {
-          font-size: 16px;
-        }
-  
-        p {
-          color: #ffcc00;
-        }
-  
-        &:hover {
-          transform: scale(1.05);
-        }
-      }
-    }
   }
+
+  .viewAllContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .viewAllButton {
+      margin-top: 12px;
+      padding: 10px 20px;
+      background: rgb(219, 219, 153);
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: orange;
+      }
+  }
+}

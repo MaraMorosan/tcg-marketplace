@@ -25,6 +25,22 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
+    @GetMapping("/categories")
+    public List<ProductDto> getCategories() {
+        return productService.getAllCategories();
+    }
+
+    @GetMapping("/filter")
+    public List<ProductDto> filterProducts(
+            @RequestParam(required = false) String productType,
+            @RequestParam(required = false) String expansionName,
+            @RequestParam(required = false) String rarityName,
+            @RequestParam(required = false) String searchTerm,
+            @RequestParam(required = false, defaultValue = "nameAsc") String sortBy
+    ) {
+        return productService.filterProducts(productType, expansionName, rarityName, searchTerm, sortBy);
+    }
+
     @GetMapping("/search")
     public ResponseEntity<Map<String, Object>> searchProducts(
             @RequestParam(required = false, defaultValue = "") String name,
@@ -53,6 +69,16 @@ public class ProductController {
         }
         return ResponseEntity.ok(products);
     }
+
+    @GetMapping("/{category}/{expansion}/{cardName}")
+    public ResponseEntity<ProductDto> getProductByCategoryExpansionAndCardName(
+            @PathVariable("category") String category,
+            @PathVariable("expansion") String expansion,
+            @PathVariable("cardName") String cardName) {
+        ProductDto productDto = productService.getProductByCategoryExpansionAndCardName(category, expansion, cardName);
+        return ResponseEntity.ok(productDto);
+    }
+
 
     @PostMapping
     public ProductDto createProduct(@RequestBody CreateProductDto dto) {

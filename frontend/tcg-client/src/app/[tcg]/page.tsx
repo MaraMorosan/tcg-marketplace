@@ -9,7 +9,7 @@ import styles from "./page.module.scss";
 const VALID_TCGS = ["Pokemon", "MagicTheGathering", "YuGiOh", "OnePiece"];
 
 export default async function TcgPage({ params }: { params: { tcg: string } }) {
-  const { tcg } = await Promise.resolve(params);
+  const { tcg } = await params;
 
   if (!VALID_TCGS.includes(tcg)) {
     notFound();

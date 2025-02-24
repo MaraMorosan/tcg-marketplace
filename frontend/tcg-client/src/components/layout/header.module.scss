@@ -35,51 +35,52 @@
       margin-right: 8px;
     }
 
+    .dropdownSearch {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #444;
+      border-top: 1px solid white;
+      border-bottom: 1px solid white;
+      border-radius: 1px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-height: 300px;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+    
+    .dropdownItem {
+      padding: 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
+    .dropdownItem:hover {
+      border-top: 1px solid #ffcc00;
+      border-bottom: 1px solid #ffcc00;
+    }
+    
+    .showAll {
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .showAll:hover {
+      background-color: #ddd;
+    }
+  
+
     input {
       background: none;
       border: none;
       outline: none;
       color: white;
       font-size: 14px;
-      width: 100vh;
+      width: 70vh;
     }
-  }
-
-  .dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #444;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    border-radius: 1px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-height: 300px;
-    overflow-y: auto;
-    z-index: 1000;
-  }
-  
-  .dropdownItem {
-    padding: 10px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .dropdownItem:hover {
-    border-top: 1px solid #ffcc00;
-    border-bottom: 1px solid #ffcc00;
-  }
-  
-  .showAll {
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .showAll:hover {
-    background-color: #ddd;
   }
 
   .rightSection {
@@ -104,6 +105,61 @@
 
         &:focus {
           border-color: #ffcc00;
+        }
+      }
+    }
+
+    .userSection {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+
+      .username {
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+        padding: 6px 12px;
+        background: #333;
+        border-radius: 4px;
+
+        &:hover {
+          background: #ffcc00;
+          color: #222;
+        }
+      }
+
+      .dropdownUser {
+        position: absolute;
+        top: 35px;
+        left: 0;
+        background: #333;
+        border-radius: 6px;
+        padding: 8px 0;
+        min-width: 120px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        z-index: 1100; 
+
+        a, button {
+          background: none;
+          border: none;
+          color: white;
+          padding: 8px 16px;
+          text-align: left;
+          font-size: 14px;
+          cursor: pointer;
+          transition: background 0.2s ease-in-out;
+
+          &:hover {
+            background: #ffcc00;
+            color: #222;
+          }
+        }
+
+        button {
+          width: 100%;
         }
       }
     }

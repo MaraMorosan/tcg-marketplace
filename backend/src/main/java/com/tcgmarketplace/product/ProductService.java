@@ -9,6 +9,15 @@ import java.util.List;
 public interface ProductService {
     List<ProductDto> getAllProducts();
     ProductDto getProductById(Integer id);
+    List<ProductDto> getAllCategories();
+    List<ProductDto> filterProducts(
+            String productType,
+            String expansionName,
+            String rarityName,
+            String searchTerm,
+            String sortBy
+    );
+    ProductDto getProductByCategoryExpansionAndCardName(String category, String expansion, String name);
     List<Product> getProductByExpansionName(String expansionName);
     List<Product> searchByName(String name, int limit);
     int countByNameLike(String name);

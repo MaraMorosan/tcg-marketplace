@@ -1,0 +1,127 @@
+.categoryPage {
+  background: #222;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+
+  .pageTitle {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+  justify-content: center;
+
+  .filterLabel {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    gap: 4px;
+  }
+
+  .selectInput,
+  .searchInput {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: #fff;
+    outline: none;
+    min-width: 150px;
+
+    &:focus {
+      border-color: #ffcc00;
+    }
+  }
+
+  .searchButton {
+    align-self: flex-end;
+    padding: 10px 20px;
+    background-color: #ffcc00;
+    color: #222;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: orange;
+    }
+  }
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  background: #444;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+
+  &:hover {
+    background: #555;
+    transform: scale(1.05);
+  }
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .productCard:hover{
+    transform: scale(1.1);
+  }
+}
+
+.productName {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.errorMessage {
+  color: #ff3333;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px;
+}
