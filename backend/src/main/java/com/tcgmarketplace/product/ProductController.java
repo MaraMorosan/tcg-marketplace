@@ -25,6 +25,22 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
+    @GetMapping("/categories")
+    public List<ProductDto> getCategories() {
+        return productService.getAllCategories();
+    }
+
+    @GetMapping("/filter")
+    public List<ProductDto> filterProducts(
+            @RequestParam(required = false) String productType,
+            @RequestParam(required = false) String expansionName,
+            @RequestParam(required = false) String rarityName,
+            @RequestParam(required = false) String searchTerm,
+            @RequestParam(required = false, defaultValue = "nameAsc") String sortBy
+    ) {
+        return productService.filterProducts(productType, expansionName, rarityName, searchTerm, sortBy);
+    }
+
     @GetMapping("/search")
     public ResponseEntity<Map<String, Object>> searchProducts(
             @RequestParam(required = false, defaultValue = "") String name,

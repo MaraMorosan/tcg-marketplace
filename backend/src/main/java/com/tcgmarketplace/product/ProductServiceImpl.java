@@ -10,6 +10,7 @@ import com.tcgmarketplace.card.CardRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -52,6 +53,28 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<ProductDto> getAllCategories() {
+        return productRepository.findAllCategories().stream()
+                .map(this::toDto)
+                .toList();
+    }
+
+    @Override
+    public List<ProductDto> filterProducts(
+            String productType,
+            String expansionName,
+            String rarityName,
+            String searchTerm,
+            String sortBy
+    ) {
+        List<Product> products = productRepository.filterProducts(productType, expansionName, rarityName, searchTerm, sortBy);
+        return products.stream()
+                .map(this::toDto)
+                .collect(Collectors.toList());
+    }
+
+
+    @Override
     public List<Product> getProductByExpansionName(String expansionName) {
         return productRepository.findByExpansionName(expansionName);
     }
@@ -62,6 +85,10 @@ public class ProductServiceImpl implements ProductService {
         Product product = new Product();
         product.setName(dto.name());
         product.setProductType(dto.productType());
+
+        if (dto.imageUrl() != null && !dto.imageUrl().isEmpty()) {
+            product.setImageUrl(dto.imageUrl());
+        }
 
         if(dto.expansionId() != null) {
             Expansion expansion = expansionRepository.findById(dto.expansionId())
@@ -89,6 +116,10 @@ public class ProductServiceImpl implements ProductService {
                 .orElseThrow(() -> new RuntimeException("Product not found"));
         product.setName(dto.name());
         product.setProductType(dto.productType());
+
+        if (dto.imageUrl() != null && !dto.imageUrl().isEmpty()) {
+            product.setImageUrl(dto.imageUrl());
+        }
 
         if(dto.expansionId() != null) {
             Expansion expansion = expansionRepository.findById(dto.expansionId())
@@ -135,6 +166,7 @@ public class ProductServiceImpl implements ProductService {
         return new ProductDto(
                 product.getId(),
                 product.getName(),
+                product.getImageUrl(),
                 product.getProductType(),
                 expansionId,
                 cardId,

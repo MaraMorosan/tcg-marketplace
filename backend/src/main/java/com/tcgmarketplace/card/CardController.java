@@ -37,6 +37,16 @@ public class CardController {
         return cardService.findCardByCollectorNumber(collectorNumber);
     }
 
+    @GetMapping("/tcg/{tcgId}")
+    public List<CardDto> getCardsByTcg(@PathVariable Integer tcgId) {
+        return cardService.getCardsByTcg(tcgId);
+    }
+
+    @GetMapping("/tcg/{tcgId}/search")
+    public List<CardDto> searchCardsByTcgAndName(@PathVariable Integer tcgId, @RequestParam String name) {
+        return cardService.searchCardsByTcgAndName(tcgId, name);
+    }
+
     @PostMapping
     public CardDto createCard(@RequestBody CreateCardDto dto) {
         return cardService.createCard(dto);

@@ -3,6 +3,9 @@
   padding: 20px;
   border-radius: 8px;
   color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 
   h2 {
     text-align: center;
@@ -106,4 +109,27 @@
       }
     }
   }
+
+  .viewAllContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: auto;
+  }
+  
+  .viewAllButton {
+    padding: 10px 20px;
+    background: rgb(219, 219, 153);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  
+    &:hover {
+      background: orange;
+    }
+  }
+  
 }

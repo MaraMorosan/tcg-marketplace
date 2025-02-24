@@ -18,6 +18,9 @@ public class Product {
     @Column(name = "product_name", nullable = false, length = 255)
     private String name;
 
+    @Column(name = "image_url", length = 255, nullable = true)
+    private String imageUrl;
+
     @Enumerated(EnumType.STRING)
     private ProductType productType;
 
@@ -75,6 +78,14 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public ProductType getProductType() {

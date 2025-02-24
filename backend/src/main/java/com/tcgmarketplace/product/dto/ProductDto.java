@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 public record ProductDto(
         Integer id,
         String name,
+        String imageUrl,
         ProductType productType,
         Integer expansionId,
         Integer cardId,

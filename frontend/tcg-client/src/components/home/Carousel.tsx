@@ -4,30 +4,27 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useSwipeable } from "react-swipeable";
+import { useRouter, usePathname } from "next/navigation"; // Import pentru router
 import styles from "./carousel.module.scss";
-import Link from "next/link";
 
 const banners = [
   {
     id: 1,
-    title: "🔥 Hot Community Post!",
+    title: "Hot Community Post!",
     subtitle: "Check out discussions!",
     image: "https://theuncommonshop.ch/wp-content/uploads/2024/11/prismatic-evolutions-vorbestellen-Pokemon-in-der-schweiz.jpg",
-    link: "/community",
   },
   {
     id: 2,
     title: "New TCG Set Released!",
     subtitle: "Discover new collections!",
     image: "https://theuncommonshop.ch/wp-content/uploads/2025/01/hero-visual-high-snygk5.webp",
-    link: "/community",
   },
   {
     id: 3,
     title: "Trade Your Cards!",
     subtitle: "Find great deals!",
     image: "https://theuncommonshop.ch/wp-content/uploads/2025/02/jr4upiehfasg7_1600x1080.webp",
-    link: "/community",
   },
 ];
 
@@ -35,6 +32,11 @@ export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+
+  const router = useRouter();
+  const pathname = usePathname() ?? "/";
+
+  const tcg = pathname.split("/")[1];
 
   const resetAutoplay = () => {
     if (autoplayRef.current) clearTimeout(autoplayRef.current);
@@ -71,7 +73,7 @@ export default function Carousel() {
     onSwipedRight: prevSlide,
     trackMouse: true,
   });
-  
+
   const variants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 300 : -300,
@@ -94,6 +96,12 @@ export default function Carousel() {
     opacity: { duration: 0.2 },
   };
 
+  const handleRedirect = () => {
+    if (tcg) {
+      router.push(`/${tcg}/community`);
+    }
+  };
+
   return (
     <div className={styles.carousel} {...handlers}>
       <AnimatePresence custom={direction} mode="popLayout">
@@ -111,9 +119,10 @@ export default function Carousel() {
           <div className={styles.overlay}>
             <h2>{banners[currentIndex].title}</h2>
             <p>{banners[currentIndex].subtitle}</p>
-            <Link href={banners[currentIndex].link}>
-              <button className={styles.button}>View More</button>
-            </Link>
+            {/* 🔹 Buton care redirecționează spre `[tcg]/community` */}
+            <button className={styles.button} onClick={handleRedirect}>
+              View More
+            </button>
           </div>
         </motion.div>
       </AnimatePresence>

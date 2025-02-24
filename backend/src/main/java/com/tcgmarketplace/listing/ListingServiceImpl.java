@@ -43,6 +43,10 @@ public class ListingServiceImpl implements ListingService {
         Product product = productRepository.findById(dto.productId())
                 .orElseThrow(() -> new RuntimeException("Product not found"));
 
+        if (product.getParentProduct() == null) {
+            throw new RuntimeException("Category products cannot be listed.");
+        }
+
         Listing listing = new Listing();
         listing.setProduct(product);
         listing.setSeller(seller);

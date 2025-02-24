@@ -1,3 +1,11 @@
-export const BASE_URL = `${process.env.NEXT_PUBLIC_BACKEND_URL}`;
-export const PRODUCTS_ENDPOINT = `${BASE_URL}/api/products/search`;
-export const CARDS_ENDPOINT = `${BASE_URL}/api/cards`
+export const BASE_URL_API = `${process.env.NEXT_PUBLIC_BACKEND_URL}`;
+export const BASE_URL = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api`;
+export const PRODUCTS_ENDPOINT = `${BASE_URL}/products`;
+export const SEARCH_PRODUCTS_ENDPOINT = `${PRODUCTS_ENDPOINT}/search`;
+export const CARDS_ENDPOINT = `${BASE_URL}/cards`;
+export const PRODUCTS_CATEGORIES_ENDPOINT = `${PRODUCTS_ENDPOINT}/categories`;
+export const PRODUCTS_FILTER_ENDPOINT = `${PRODUCTS_ENDPOINT}/filter`
+export const EXPANSIONS_ENDPOINT = `${BASE_URL}/expansions`;
+export const AUTH_LOGIN_ENDPOINT = `${BASE_URL_API}/auth/login`;
+export const LOGGED_USER = `${BASE_URL}/users/me`;
+export const REGISTER_ENDPOINT = `${BASE_URL_API}/auth/signup`;

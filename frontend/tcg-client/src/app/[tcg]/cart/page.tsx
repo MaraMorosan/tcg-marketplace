@@ -1,12 +1,19 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { cookies } from "next/headers";
 
 const VALID_TCGS = ["Pokemon", "MagicTheGathering", "YuGiOh", "OnePiece"];
 
-export default function CartPage({ params }: { params: { tcg: string } }) {
-  const { tcg } = params;
+export default async function CartPage({ params }: { params: { tcg: string } }) {
+  const { tcg } = await params;
 
   if (!VALID_TCGS.includes(tcg)) {
     notFound();
+  }
+
+  const token = (await cookies()).get("token")?.value;
+
+  if (!token) {
+    redirect(`/${tcg}`);
   }
 
   return (
