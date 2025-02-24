@@ -27,12 +27,12 @@ public class CardController {
         return cardService.getCardById(id);
     }
 
-    @GetMapping("/search/{name}")
+    @GetMapping("/search/name/{name}")
     public CardDto findCardByName(@PathVariable String name) {
         return cardService.findCardByName(name);
     }
 
-    @GetMapping("/search/{collectorNumber}")
+    @GetMapping("/search/collectorNumber/{collectorNumber}")
     public CardDto findCardByCollectorNumber( @PathVariable String collectorNumber) {
         return cardService.findCardByCollectorNumber(collectorNumber);
     }
