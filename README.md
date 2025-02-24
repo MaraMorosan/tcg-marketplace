@@ -1,4 +1,4 @@
-# 🃏 TCG Marketplace
+# TCG Marketplace
 
 ## Description
 TCG Marketplace is an online marketplace for trading card games (TCG) enthusiasts. Users can see the latest expansions, cards and even list, sell and buy their own cards collection or products!
