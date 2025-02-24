@@ -47,6 +47,18 @@ export default function ProductList() {
     }
   }
 
+  const handleProductClick = (prod: any) => {
+    if (typeof window !== "undefined") {
+      const segments = window.location.pathname.split("/");
+      segments.pop();
+      const basePath = segments.join("/");
+      const productType = prod.productType.toLowerCase();
+      const expansion = prod.expansionName.toLowerCase();
+      const cardName = prod.name.toLowerCase();
+      router.push(`${basePath}/${productType}/${expansion}/${cardName}`);
+    }
+  };
+  
   useEffect(() => {
     fetchFilteredProducts();
   }, [params.category, params.expansion]);
@@ -141,11 +153,11 @@ export default function ProductList() {
         <div className={styles.productGrid}>
           {displayedProducts.length > 0 ? (
             displayedProducts.map((prod, index) => (
-              <div key={index} className={styles.productCard}>
-                <div className="imageWrapper">
+              <div key={index} className={styles.productCard} onClick={() => handleProductClick(prod)}>
+                <div className={styles.imageWrapper}>
                   <img src={prod.imageUrl} alt={prod.name} />
                 </div>
-                <h3 className="productName">{prod.name}</h3>
+                <h3 className={styles.productName}>{prod.name}</h3>
               </div>
             ))
           ) : (

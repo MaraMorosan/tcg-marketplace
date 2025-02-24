@@ -60,7 +60,7 @@
 .productGrid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
+  gap: 16px;
 
   @media (max-width: 1200px) {
     grid-template-columns: repeat(4, 1fr);
@@ -77,50 +77,46 @@
 }
 
 .productCard {
-  background-color: #333;
-  border-radius: 8px;
-  text-align: center;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-decoration: none;
-  color: white;
+  text-align: center;
+  padding: 15px;
+  background: #444;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 
   &:hover {
-    background-color: #444;
+    background: #555;
+    transform: scale(1.05);
+  }
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
   }
 
-  .imageWrapper {
-    width: 100%;
-    position: relative;
-
-    img {
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-      margin-bottom: 10px;
-      object-fit: cover;
-    }
+  .productCard:hover{
+    transform: scale(1.1);
   }
+}
 
-  .productName {
-    font-size: 16px;
-    margin: 5px 0;
-    color: #fff;
-  }
-
-  .price {
-    color: #ffcc00;
-    font-weight: bold;
-    margin: 5px 0 0 0;
-  }
-
-  .metaInfo {
-    font-size: 12px;
-    color: #bbb;
-    margin-top: 4px;
-  }
+.productName {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #fff;
 }
 
 .errorMessage {

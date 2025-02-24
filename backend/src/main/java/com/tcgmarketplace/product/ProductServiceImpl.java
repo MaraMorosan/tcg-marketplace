@@ -73,6 +73,18 @@ public class ProductServiceImpl implements ProductService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public ProductDto getProductByCategoryExpansionAndCardName(String category, String expansion, String cardName) {
+        ProductType productType = ProductType.valueOf(category.toUpperCase());
+
+        Product product = productRepository.findProductByProductTypeAndExpansionNameAndCardName(productType, expansion, cardName);
+
+        if (product == null) {
+            throw new RuntimeException("Product not found");
+        }
+
+        return toDto(product);
+    }
 
     @Override
     public List<Product> getProductByExpansionName(String expansionName) {
@@ -161,18 +173,24 @@ public class ProductServiceImpl implements ProductService {
 
     private ProductDto toDto(Product product) {
         Integer expansionId = product.getExpansion() != null ? product.getExpansion().getId() : null;
+        String expansionName = product.getExpansion() != null ? product.getExpansion().getName() : null;
         Integer cardId = product.getCard() != null ? product.getCard().getId() : null;
+        String cardImageUrl = product.getCard() != null ? product.getCard().getImageUrl() : null;
         Integer parentProductId = product.getParentProduct() != null ? product.getParentProduct().getId() : null;
+
         return new ProductDto(
                 product.getId(),
                 product.getName(),
                 product.getImageUrl(),
+                expansionName,
                 product.getProductType(),
                 expansionId,
                 cardId,
+                cardImageUrl,
                 parentProductId,
                 product.getCreatedAt(),
                 product.getUpdatedAt()
         );
     }
+
 }

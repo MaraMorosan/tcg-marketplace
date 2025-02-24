@@ -4,13 +4,13 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useSwipeable } from "react-swipeable";
-import { useRouter, usePathname } from "next/navigation"; // Import pentru router
+import { useRouter, usePathname } from "next/navigation";
 import styles from "./carousel.module.scss";
 
 const banners = [
   {
     id: 1,
-    title: "Hot Community Post!",
+    title: "Hot Community Posts!",
     subtitle: "Check out discussions!",
     image: "https://theuncommonshop.ch/wp-content/uploads/2024/11/prismatic-evolutions-vorbestellen-Pokemon-in-der-schweiz.jpg",
   },
@@ -18,13 +18,13 @@ const banners = [
     id: 2,
     title: "New TCG Set Released!",
     subtitle: "Discover new collections!",
-    image: "https://theuncommonshop.ch/wp-content/uploads/2025/01/hero-visual-high-snygk5.webp",
+    image: "https://www.pokebox.com.au/cdn/shop/collections/Paldea_Evolved_Banner_2048x_b84b3a42-9343-4da2-8078-8863a81aeb56.webp?v=1679977328",
   },
   {
     id: 3,
     title: "Trade Your Cards!",
     subtitle: "Find great deals!",
-    image: "https://theuncommonshop.ch/wp-content/uploads/2025/02/jr4upiehfasg7_1600x1080.webp",
+    image: "https://asia.pokemon-card.com/my/wp-content/uploads/sites/6/2025/01/my_top_banner_showdown2025.jpg",
   },
 ];
 

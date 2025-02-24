@@ -17,6 +17,7 @@ public interface ProductService {
             String searchTerm,
             String sortBy
     );
+    ProductDto getProductByCategoryExpansionAndCardName(String category, String expansion, String name);
     List<Product> getProductByExpansionName(String expansionName);
     List<Product> searchByName(String name, int limit);
     int countByNameLike(String name);

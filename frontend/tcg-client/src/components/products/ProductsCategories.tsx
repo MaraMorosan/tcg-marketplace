@@ -11,6 +11,14 @@ interface Category {
   image: string;
 }
 
+const formatCategoryName = (name: string): string => {
+  return name
+    .replace(/_/g, ' ')
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+};
+
 export default function ProductCategories() {
   const router = useRouter();
   const [categories, setCategories] = useState<Category[]>([]);
@@ -30,11 +38,11 @@ export default function ProductCategories() {
         const uniqueCategories = new Map<string, Category>();
 
         data.forEach((product: any) => {
-          const rawCategoryName = product.productType; 
+          const rawCategoryName = product.productType;
 
           if (!uniqueCategories.has(rawCategoryName)) {
             uniqueCategories.set(rawCategoryName, {
-              name: rawCategoryName,
+              name: formatCategoryName(rawCategoryName),
               path: rawCategoryName.toLowerCase(),
               image: product.imageUrl || "https://tcg.pokemon.com/assets/img/global/tcg-card-back-2x.jpg"
             });

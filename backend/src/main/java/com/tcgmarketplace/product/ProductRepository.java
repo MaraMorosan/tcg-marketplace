@@ -10,10 +10,16 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     @Query("SELECT p FROM Product p WHERE LOWER(p.expansion.name) = LOWER(:expName)")
     List<Product> findByExpansionName(@Param("expName") String expansionName);
 
-    @Query(value = "SELECT * FROM dev_tcg_marketplace.product WHERE LOWER(product_name) ILIKE CONCAT('%', :name, '%') LIMIT :limit", nativeQuery = true)
+    @Query(value = "SELECT * FROM dev_tcg_marketplace.product WHERE LOWER(product_name) ILIKE CONCAT('%', :name, '%') AND parent_product_id IS NOT NULL LIMIT :limit", nativeQuery = true)
     List<Product> searchByName(@Param("name") String name, @Param("limit") int limit);
 
-    @Query(value = "SELECT COUNT(*) FROM dev_tcg_marketplace.product WHERE LOWER(product_name) ILIKE CONCAT('%', :name, '%')", nativeQuery = true)
+    @Query("SELECT p FROM Product p WHERE p.productType = :productType AND LOWER(p.expansion.name) = LOWER(:expansionName) AND LOWER(p.card.name) = LOWER(:cardName)")
+    Product findProductByProductTypeAndExpansionNameAndCardName(
+            @Param("productType") ProductType productType,
+            @Param("expansionName") String expansionName,
+            @Param("cardName") String cardName);
+
+    @Query(value = "SELECT COUNT(*) FROM dev_tcg_marketplace.product WHERE LOWER(product_name) ILIKE CONCAT('%', :name, '%') AND parent_product_id IS NOT NULL", nativeQuery = true)
     int countByName(@Param("name") String name);
 
     @Query(value = "SELECT * FROM dev_tcg_marketplace.product WHERE parent_product_id IS NULL", nativeQuery = true)

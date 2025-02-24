@@ -70,6 +70,16 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
+    @GetMapping("/{category}/{expansion}/{cardName}")
+    public ResponseEntity<ProductDto> getProductByCategoryExpansionAndCardName(
+            @PathVariable("category") String category,
+            @PathVariable("expansion") String expansion,
+            @PathVariable("cardName") String cardName) {
+        ProductDto productDto = productService.getProductByCategoryExpansionAndCardName(category, expansion, cardName);
+        return ResponseEntity.ok(productDto);
+    }
+
+
     @PostMapping
     public ProductDto createProduct(@RequestBody CreateProductDto dto) {
         return productService.createProduct(dto);

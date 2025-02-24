@@ -7,9 +7,11 @@ public record ProductDto(
         Integer id,
         String name,
         String imageUrl,
+        String expansionName,
         ProductType productType,
         Integer expansionId,
         Integer cardId,
+        String cardImageUrl,
         Integer parentProductId,
         LocalDateTime createdAt,
         LocalDateTime updatedAt
